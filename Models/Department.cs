@@ -11,5 +11,17 @@ namespace hospital_project.Models
         [Key]
         public int department_id { get; set; }
         public string department_name { get; set; }
+
+        //A department can have multiple physicians associated with them
+        public ICollection<Physician> Physicians{ get; set; }
+    }
+
+    public class DepartmentDto
+    {
+        public int department_id { get; set; }
+        public string department_name { get; set; }
+
+        //A department can have multiple physicians associated with them
+        public ICollection<Physician> Physicians { get; set; }
     }
 }

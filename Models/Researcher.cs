@@ -18,8 +18,6 @@ namespace hospital_project.Models
      
         public bool ResearchLeader { get; set; }
 
-        //Hi Christine, I know the ForeignKey should be Single as Project and public virtual should also be single
-        //But after I update and correct them, it keeps have bugs
 
         [ForeignKey("Projects")]
 

@@ -4,7 +4,6 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
 using hospital_project.Models;
@@ -25,7 +24,6 @@ namespace hospital_project.Controllers
         // GET: Researchers/Details/5
         public ActionResult Details(int? id)
         {
-            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
