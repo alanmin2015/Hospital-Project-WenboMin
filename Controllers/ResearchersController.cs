@@ -39,6 +39,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Researchers/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "ProjectName");
@@ -50,6 +51,7 @@ namespace hospital_project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "ResearcherId,ResearcherName,ResearchLeader,ProjectId")] Researcher researcher)
         {
             if (ModelState.IsValid)
@@ -64,6 +66,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Researchers/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,6 +86,7 @@ namespace hospital_project.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ResearcherId,ResearcherName,ResearchLeader,ProjectId")] Researcher researcher)
         {
@@ -97,6 +101,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Researchers/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -114,6 +119,7 @@ namespace hospital_project.Controllers
         // POST: Researchers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Researcher researcher = db.Researchers.Find(id);

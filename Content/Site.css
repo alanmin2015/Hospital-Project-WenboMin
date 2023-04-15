@@ -28,3 +28,51 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+/* Styles for desktop and tablet screens */
+.table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .table-responsive {
+        display: block;
+    }
+}
+/* Styles for mobile screens */
+@media (max-width: 576px) {
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+        table thead {
+            display: none;
+        }
+
+        table tbody tr {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: .625rem;
+            white-space: normal;
+        }
+
+        table tbody td {
+            display: block;
+            text-align: right;
+            font-size: 13px;
+            border-bottom: none;
+        }
+
+            table tbody td:before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-right: .625rem;
+            }
+}

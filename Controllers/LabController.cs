@@ -50,6 +50,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Lab/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -57,6 +58,7 @@ namespace hospital_project.Controllers
 
         // POST: Lab/Create
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Lab lab)
         {
 
@@ -77,6 +79,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Lab/Edit/5
+        [Authorize]
         public ActionResult Edit(int id)
         {
             UpdateLab ViewModel = new UpdateLab();
@@ -92,6 +95,7 @@ namespace hospital_project.Controllers
 
         // POST: Lab/Edit/5
         [HttpPost]
+        [Authorize]
         public ActionResult Update(int id, Lab lab)
         {
             string url = "labdata/updatelab/" + id;
@@ -110,6 +114,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Lab/Delete/5
+        [Authorize]
         public ActionResult DeleteConfirm(int id)
         {
             string url = "labdata/findlab/" + id;
@@ -120,6 +125,7 @@ namespace hospital_project.Controllers
 
         // POST: Lab/Delete/5
         [HttpPost]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             string url = "labdata/deletelab/" + id;

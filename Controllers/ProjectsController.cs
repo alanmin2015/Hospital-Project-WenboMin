@@ -37,6 +37,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Projects/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.LabId = new SelectList(db.Labs, "LabId", "LabName");
@@ -48,6 +49,7 @@ namespace hospital_project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "ProjectId,ProjectName,LabId")] Project project)
         {
             if (ModelState.IsValid)
@@ -62,6 +64,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Projects/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -82,6 +85,7 @@ namespace hospital_project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "ProjectId,ProjectName,LabId")] Project project)
         {
             if (ModelState.IsValid)
@@ -95,6 +99,7 @@ namespace hospital_project.Controllers
         }
 
         // GET: Projects/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -110,6 +115,7 @@ namespace hospital_project.Controllers
         }
 
         // POST: Projects/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

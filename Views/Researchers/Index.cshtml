@@ -3,45 +3,56 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
 
 <h2>List of Researcher</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ResearcherName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Projects.ProjectName)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.ResearchLeader)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ResearcherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projects.ProjectName)
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ResearcherName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Projects.ProjectName)
-        </td>
+            <th>
+                @Html.DisplayNameFor(model => model.ResearchLeader)
+            </th>
+            <th></th>
+        </tr>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.ResearchLeader)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ResearcherId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ResearcherId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ResearcherId })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResearcherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Projects.ProjectName)
+                </td>
 
-</table>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResearchLeader)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ResearcherId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ResearcherId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ResearcherId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
